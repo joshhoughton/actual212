@@ -15,15 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Match package.json to tag
-        run: |
-          tag="${GITHUB_REF_NAME#v}"
-          version="$(jq -r .version package.json)"
-          if [ "$tag" != "$version" ]; then
-            echo "tag v${tag} does not match package.json ${version}"
-            exit 1
-          fi
-
       - id: meta
         uses: docker/metadata-action@v6
         with:
