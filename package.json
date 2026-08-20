@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
-    "dev": "node src/index.ts",
+    "dev": "node --env-file=.env src/index.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "oxlint",
@@ -16,7 +16,8 @@
     "format:check": "oxfmt --check"
   },
   "dependencies": {
-    "@actual-app/api": "^26.8.1"
+    "@actual-app/api": "^26.8.1",
+    "croner": "^10.0.1"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
@@ -28,5 +29,8 @@
   },
   "engines": {
     "node": ">=26"
+  },
+  "allowScripts": {
+    "better-sqlite3": true
   }
 }
