@@ -1,0 +1,23 @@
+{
+  "name": "actual212",
+  "version": "1.0.0",
+  "description": "Sync Trading 212 account value into Actual Budget",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "node --experimental-strip-types src/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@actual-app/api": "^26.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
