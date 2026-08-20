@@ -1,7 +1,7 @@
 import { Cron } from 'croner';
 
 import { loadConfig, type Config } from './config.ts';
-import { writeBalance } from './actual.ts';
+import { ensureDataDir, writeBalance } from './actual.ts';
 import { fetchAccountSummary } from './trading212.ts';
 
 async function sync(config: Config): Promise<void> {
@@ -46,6 +46,7 @@ function createCronSchedule(schedule: string, run: () => Promise<void>): Cron {
 
 async function main(): Promise<void> {
   const config = loadConfig();
+  await ensureDataDir(config.actualDataDir);
 
   if (!config.cronSchedule) {
     await sync(config);

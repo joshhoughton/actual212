@@ -1,4 +1,4 @@
-import { mkdir } from 'node:fs/promises';
+import { access, constants, mkdir } from 'node:fs/promises';
 
 import * as api from '@actual-app/api';
 
@@ -16,8 +16,16 @@ async function findAccount(name: string) {
   return account;
 }
 
+export async function ensureDataDir(dir: string): Promise<void> {
+  await mkdir(dir, { recursive: true });
+  try {
+    await access(dir, constants.W_OK);
+  } catch {
+    throw new Error(`${dir} is not writable`);
+  }
+}
+
 export async function writeBalance(config: Config, value: number, currency: string): Promise<void> {
-  await mkdir(config.actualDataDir, { recursive: true });
   await api.init({
     dataDir: config.actualDataDir,
     serverURL: config.actualServerUrl,
