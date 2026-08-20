@@ -1,0 +1,12 @@
+services:
+  actual212:
+    image: ghcr.io/joshhoughton/actual212:latest
+    env_file: .env
+    restart: on-failure
+    environment:
+      ACTUAL_DATA_DIR: /data
+    volumes:
+      - actual212-data:/data
+
+volumes:
+  actual212-data:
