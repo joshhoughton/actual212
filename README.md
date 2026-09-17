@@ -15,7 +15,7 @@ With no `CRON_SCHEDULE`, the process runs once and exits.
 
 ## Docker Compose
 
-> [!TIP] 
+> [!TIP]
 > Run `actual212` next to Actual on a shared network so `ACTUAL_SERVER_URL=http://actual:5006` resolves.
 
 1. Copy `.env` and fill in the values:
@@ -40,7 +40,7 @@ With no `CRON_SCHEDULE`, the process runs once and exits.
        volumes:
          - actual-data:/data
        healthcheck:
-         test: ["CMD-SHELL", "node scripts/health-check.js"]
+         test: ['CMD-SHELL', 'node scripts/health-check.js']
          interval: 60s
          timeout: 10s
          retries: 3
@@ -79,7 +79,6 @@ With no `CRON_SCHEDULE`, the process runs once and exits.
 
 ## Environment
 
-
 | Variable                     | Required | Notes                                       |
 | ---------------------------- | -------- | ------------------------------------------- |
 | `T212_API_KEY`               | yes      | Trading 212 API key                         |
@@ -93,5 +92,3 @@ With no `CRON_SCHEDULE`, the process runs once and exits.
 | `DRY_RUN`                    |          | `true` to log without writing               |
 | `CRON_SCHEDULE`              |          | Cron schedule, leave this empty to run once |
 | `TZ`                         |          | Timezone for the cron expression            |
-
-
