@@ -17,13 +17,13 @@
   },
   "dependencies": {
     "@actual-app/api": "^26.11.0",
-    "croner": "^11.0.0"
+    "croner": "^11.0.1"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
-    "oxfmt": "^0.77.0",
-    "oxlint": "^1.92.0",
-    "oxlint-tsgolint": "^7.0.2006",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "oxlint-tsgolint": "^7.0.2007",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0"
   },
